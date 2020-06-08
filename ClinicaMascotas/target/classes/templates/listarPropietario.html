@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="plantilla.html::head">
+    
+</head>
+<body>
+    <header th:replace="plantilla.html::header"></header>
+
+    <main class="container">
+        <h2 class="text-center pt-3 pb-5 text-info">Listar Propietarios</h2>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h4 class="text-center">Listado de propietarios</h4>
+                    
+                    <table id="u-tabla" class="table table-bordered table-striped table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Opcion</th>                            
+                            </tr>
+                        </thead>
+                        <tbody id="listado">
+                           
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <form>
+                        <h4 class="text-center">Ver/Editar detalle del propetario</h4>
+                        <div class="pt-3" id="editar-propietario">
+                            <div class="row collapse form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="id">ID:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="number" name="id-lp" id="id-lp" class="form-control" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="nombre">Nombre:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="text" name="nombre-lp" id="nombres-lp" class="form-control" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="apellido">Apellido:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="text" name="apellido-lp" id="apellidos-lp" class="form-control" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="direccion">Direccion:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="text" name="direccion-lp" id="direccion-lp" class="form-control" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="tel">Telefono:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="number" name="telefono-lp" id="telefono-lp" class="form-control" disabled>
+                                </div>
+                            </div>
+                            
+                            
+                            <a type="submit" id="edit-propietario" class="btn btn-warning">Editar</a>
+                        </div>
+                    </form>
+                    <form>
+                        <h4 class="text-center">Ver/Editar Mascota</h4>
+                        <table id="m-tabla" class="table table-bordered table-sm">
+                            <thead class="thead-light">
+                                <tr>
+
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Fecha Nacimiento</th>
+                                    <th scope="col"><span class="invisible">Opciones</span></th>
+                                    <th scope="col" class="collapse">ID:</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listMascotas">
+
+                            </tbody>
+                        </table>
+                    </form>
+                </div> <!--Aqui termina la segunda columna-->
+            </div>
+
+    </main>
+
+<footer th:replace="plantilla.html::footer"> </footer>
+    
+</body>
+</html>
