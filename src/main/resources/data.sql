@@ -1,0 +1,1 @@
+INSERT INTO userdetails (active, password, roles, username) values ('1', '$2a$10$UDU58oN1ogtUNe9sYqcFueCkdFELNEdZ8oZ/9feD5iX1wEZctzPou', 'ROLE_ADMIN', 'admin');
