@@ -2,7 +2,7 @@ $(function(){
 
 	$("#form-login input[type=submit]").on('click',function(ev){
 		ev.preventDefault();
-		var url = 'http://localhost:8080/login';
+		var url = '/login';
 		var username = $('#login').val();
 		var pwd = $('#password').val();
 		login(url,username,pwd);
