@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="plantilla.html::head">
+    
+</head>
+<body>
+    <header th:replace="plantilla.html::header"></header>
+
+    <main class="container">  
+
+        <h2 class="text-center pt-3 pb-5 text-info">Agregar Mascotas</h2>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h4 class="text-center">Listado de propietarios</h4>
+                    <table id="i-tabla" class="table table-bordered table-striped table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Opcion</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listadoM">
+                                                    
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <form>
+                        <h4 class="text-center">Ver/Editar detalle del propetario</h4>
+                        <div class="pt-3" id="editar-propietario">
+                            <div class="row collapse form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="id-propietarioM">ID:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="number" name="id-propietarioM" id="id-propietarioM" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="nombre">Nombres:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="text" class="form-control" aria-label="Nombre" id="nombres">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="apellido">Apellidos:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="text" class="form-control" aria-label="Apellido" id="apellidos">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="direccion">Direccion:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="text" class="form-control" aria-label="Direccion" id="direccion">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-2 pr-0 pt-1">
+                                    <label for="tel">Telefono:</label>
+                                </div>
+                                <div class="input-group mb-3 col-10 pl-0">
+                                    <input type="number" class="form-control" aria-label="Telefono" id="telefono">
+                                </div>
+                            </div>
+
+                            <input type="submit" id="guardarP" value="Guardar" class="btn btn-success">
+                        </div>
+                    </form>
+
+                <!--Agregar Mascota-->
+                    <form class="ocultar">
+                        <div class="row collapse form-group">
+                            <div class="col-2 pr-0 pt-1">
+                                <label for="id-tomar">ID:</label>
+                            </div>
+                            <div class="input-group mb-3 col-10 pl-0">
+                                <input type="number" name="id-tomar" id="id-tomar" class="form-control" disabled>
+                            </div>
+                        </div>                   
+                        <h4 class="text-center">Agregar Mascota</h4>
+                        <div class="form-group row">
+                            <label for="propietario-mascota" class="col-sm-2 col-form-label">Propietario:</label>
+                            <div class="col-sm-10">
+                              <input type="text" readonly class="form-control-plaintext" id="propietario-mascota" disabled>
+                            </div>
+                        </div>
+    
+                        <div class="form-group row">
+                            <label for="nombre-mascota" class="col-sm-2 col-form-label">Nombre:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nombre-mascota">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">            
+                            <label class="col-sm-2  col-form-label" for="tipo">Tipo:</label>
+                            <div class="col-sm-10">                                
+                                <select class="form-control" id="tipo">	  
+                                    <option value="" >-Seleccione una opción-</option>                      
+	                          		<option th:each="tipo :${T(edu.unimagdalena.demo.entities.Tipo).values()}" th:value="${tipo}" th:text="${tipo.displayName}"></option>             
+	                        	</select>
+                            </div>  
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="fechaNac" class="col-sm-2 col-form-label">F/N:</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="fechaNac">
+                            </div>
+                        </div>
+                        
+                        <input type="submit" id="guardarM" value="Guardar" class="btn btn-success">
+
+                        <h4 class="text-center">Agregar Mascota</h4>
+                        <table id="tabla-mascota" class="table table-bordered table-sm">
+                            <thead class="thead-light">
+                                <tr id="fila-principal">
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Fecha Nacimiento</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listMascotas2">
+
+                            </tbody>
+                        </table>                
+                    </form>                    
+                </div> <!--Aqui termina la segunda columna-->
+            </div>
+
+    </main>
+
+    <footer th:replace="plantilla.html::footer"> </footer>
+
+</body>
+</html>
